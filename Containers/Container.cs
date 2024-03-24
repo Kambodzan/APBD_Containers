@@ -2,6 +2,7 @@
 
 public abstract class Container
 {
+    private static int containerNumber = 1;
     public double cargoMass { get; protected set; }
     public double height { get; protected set; }
     public double ownWeight { get; protected set; }
@@ -9,21 +10,22 @@ public abstract class Container
     public string serialNumber { get; protected set; }
     public double maxLoadMass { get; protected set; }
 
-    protected Container(double cargoMass, double height, double ownWeight, double depth, string serialNumber, double maxLoadMass)
+    protected Container(double cargoMass, double height, double ownWeight, double depth, double maxLoadMass, char containerType)
     {
         this.cargoMass = cargoMass;
         this.height = height;
         this.ownWeight = ownWeight;
         this.depth = depth;
-        this.serialNumber = serialNumber;
+        this.serialNumber = prepareSerialNumber(containerType);
         this.maxLoadMass = maxLoadMass;
     }
 
     public void loadCargo(double loadMass)
     {
+        Console.WriteLine("Parent job");
         if (loadMass > maxLoadMass)
         {
-            // TODO Add overfill exception
+            throw new OverfillException($"Container {serialNumber} max load mass was exceeded!");
         }
 
         cargoMass = loadMass;
@@ -32,5 +34,13 @@ public abstract class Container
     public void unloadCargo()
     {
         cargoMass = 0;
+    }
+
+    public string prepareSerialNumber(char containerType)
+    {
+        string result = "KON-" + containerType + "-" + containerNumber;
+        containerNumber++;
+
+        return result;
     }
 }
