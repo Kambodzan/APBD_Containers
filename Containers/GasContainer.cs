@@ -18,4 +18,9 @@ public class GasContainer : Container, IHazardNotifier
     {
         cargoMass = cargoMass * 0.05;
     }
+    
+    public override string ToString()
+    {
+        return $"Gas Container -> Serial No: {serialNumber}; Cargo Mass: {cargoMass} kg; Height: {height} cm; Own Weight: {ownWeight} kg; Depth: {depth} cm; Max Load: {maxLoadMass} kg; Pressure: {pressure} PSI";
+    }
 }

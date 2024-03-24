@@ -43,4 +43,9 @@ public class LiquidContainer : Container, IHazardNotifier
     {
         Console.WriteLine($"Hazard in liquid container -> {containerSerialNumber}");
     }
+
+    public override string ToString()
+    {
+        return $"Liquid Container -> Serial No: {serialNumber}; Cargo Mass: {cargoMass} kg; Height: {height} cm; Own Weight: {ownWeight} kg; Depth: {depth} cm; Max Load: {maxLoadMass} kg; Is Hazardous?: {isHazardous}";
+    }
 }

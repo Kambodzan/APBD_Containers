@@ -43,4 +43,9 @@ public abstract class Container
 
         return result;
     }
+    
+    public override string ToString()
+    {
+        return $"Container -> Serial No: {serialNumber}; Cargo Mass: {cargoMass} kg; Height: {height} cm; Own Weight: {ownWeight} kg; Depth: {depth} cm; Max Load: {maxLoadMass} kg";
+    }
 }
