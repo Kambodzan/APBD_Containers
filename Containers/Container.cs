@@ -18,11 +18,15 @@ public abstract class Container
         this.depth = depth;
         this.serialNumber = prepareSerialNumber(containerType);
         this.maxLoadMass = maxLoadMass;
+
+        if (cargoMass > maxLoadMass)
+        {
+            throw new OverfillException("Cargo mass and own weight mass exceeds max load mass!");
+        }
     }
 
     public void loadCargo(double loadMass)
     {
-        Console.WriteLine("Parent job");
         if (loadMass > maxLoadMass)
         {
             throw new OverfillException($"Container {serialNumber} max load mass was exceeded!");

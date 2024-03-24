@@ -25,6 +25,6 @@ public class RefrigeratorContainer : Container
     public override string ToString()
     {
         return
-            $"Refrigerator Container -> Serial No: {serialNumber}; Cargo Mass: {cargoMass} kg; Height: {height} cm; Own Weight: {ownWeight} kg; Depth: {depth} cm; Max Load: {maxLoadMass} kg; Loaded Product: {loadedProduct}; Temperature: {temperature}\u2103";
+            $"Refrigerator Container -> Serial No: {serialNumber}; Cargo Mass: {cargoMass} kg; Height: {height} cm; Own Weight: {ownWeight} kg; Depth: {depth} cm; Max Load: {maxLoadMass} kg; Loaded Product: {loadedProduct}; Temperature: {temperature}\u00b0C";
     }
 }
